@@ -1,10 +1,10 @@
 public class Book implements Library
 {
-    int numPages = 0;
-    String title = "";
-    String author = "";
-    boolean isAssigned = false;
-    String genre = "";
+    int numPages ;
+    String title ;
+    String author ;
+    boolean isAssigned ;
+    String genre ;
 
     public Book()
     {
@@ -78,18 +78,21 @@ public class Book implements Library
     @Override
     public void CheckOut(int studentId)
     {
-
+        if(isAssigned)
+        {
+            System.out.println(title + " is already assigned");
+            System.out.println();
+        }
+        else
+        {
+            System.out.println("You have checked out " + title);
+            System.out.println();
+        }
     }
 
     @Override
     public String toString()
     {
-        return "Book{" +
-                "numPages=" + numPages +
-                ", title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", isAssigned=" + isAssigned +
-                ", genre='" + genre + '\'' +
-                '}';
+        return "Book: " + title + " by " + author + " has " + numPages + " pages. " + "It is " + isAssigned +" that it is assigned and its genre is " + genre;
     }
 }
